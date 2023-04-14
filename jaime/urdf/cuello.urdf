@@ -9,59 +9,73 @@
   <link name="base_link">
     <visual>
       <geometry>
-        <box size="0.4 0.2 0.6"/>
+        <mesh filename="package://jaime/meshes_jaime/base_segment.stl" scale="0.001 0.001 0.001"/>
       </geometry>
-      <origin xyz="0.0 0.0 0.3" rpy="0.0 0.0 0.0"/>
+      <origin xyz="0.0 0.0 0" rpy="0.0 0.0 0.0"/>
     </visual>
+    <collision>
+      <geometry>
+        <box size="0.4 0.1 0.7"/>
+      </geometry>
+    </collision>
   </link>
 
   <link name="entre_cuello_link">
-  <origin xyz="-0.2 0.0 0.1" rpy="0.0 0.0 0.0"/>
+  <origin xyz="0 0.0 -0.02" rpy="0.0 0.0 0.0"/>
     <visual>
       <geometry>
-        <box size="0.3 0.2 0.3"/>
+        <mesh filename="package://jaime/meshes_jaime/middle_link.stl" scale="0.001 0.001 0.001"/>
       </geometry>
-      <origin xyz="-0.15 0.0 0.15" rpy="0.0 0.0 0.0"/>
+      <origin xyz="0 0.0 -0.02" rpy="0.0 0.0 0.0"/>
     </visual>
   </link>
 
   <link name="cuello_link">
-  <origin xyz="-0.2 0.0 0.25" rpy="0.0 0.0 0.0"/>
+  <origin xyz="0. 0.0 0" rpy="0.0 0.0 0.0"/>
     <visual>
       <geometry>
-        <box size="0.4 0.2 0.5"/>
+        <mesh filename="package://jaime/meshes_jaime/middle_segment.stl" scale="0.001 0.001 0.001"/>
       </geometry>
-      <origin xyz="-0.2 0.0 0.25" rpy="0.0 0.0 0.0"/>
+      <origin xyz="0 0.0 0" rpy="0.0 0.0 0.0"/>
     </visual>
   </link>
 
   <link name="entre_cuello_2_link">
-  <origin xyz="0.0 0.0 0.1" rpy="0.0 0.0 0.0"/>
+  <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
     <visual>
       <geometry>
-        <box size="0.4 0.2 0.2"/>
+        <mesh filename="package://jaime/meshes_jaime/upper_link.stl" scale="0.001 0.001 0.001"/>
       </geometry>
-      <origin xyz="-0.2 0.0 0.1" rpy="0.0 0.0 0.0"/>
+      <origin xyz="0.0 0.0 0" rpy="0.0 0.0 0.0"/>
     </visual>
   </link>
 
   <link name="cuello_2_link">
-  <origin xyz="0 0.0 0.25" rpy="0.0 0.0 0.0"/>
+  <origin xyz="0 0.0 0" rpy="0.0 0.0 0.0"/>
     <visual>
       <geometry>
-        <box size="0.4 0.2 0.5"/>
+        <mesh filename="package://jaime/meshes_jaime/upper_segment.stl" scale="0.001 0.001 0.001"/>
       </geometry>
-      <origin xyz="-0.2 0.0 0.25" rpy="0.0 0.0 0.0"/>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
     </visual>
   </link>
 
+  <link name="cuello_3_link">
+  <origin xyz="0 0.0 0" rpy="0.0 0.0 0.0"/>
+    <visual>
+      <geometry>
+        <mesh filename="package://jaime/meshes_jaime/top_segment.stl" scale="0.001 0.001 0.001"/>
+      </geometry>
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+    </visual>
+  </link>
 
 
   <joint name="primero" type="revolute">
     <parent link="base_link"/>
     <child link="entre_cuello_link"/>
     <axis xyz="0 1 0"/>
-    <origin xyz="0.15 0.0 0.6" rpy="0.0 0 0.0"/>
+    <origin xyz="-0.158 0.0 0.68518" rpy="0.0 0 0.0"/>
     <limit upper="0.785" lower="0" velocity="2" effort="1"/>
   </joint>
 
@@ -69,15 +83,16 @@
     <parent link="entre_cuello_link"/>
     <child link="cuello_link"/>
     <axis xyz="0 1 0"/>
-    <origin xyz="0 0.0 0.3" rpy="0.0 0 0.0"/>
+    <origin xyz="-0.02 0.0 0.12" rpy="0.0 0 0.0"/>
     <limit upper="0.785" lower="0" velocity="2" effort="1"/>
+    <mimic joint="primero" multiplier="1" offset="0" />
   </joint>
 
   <joint name="tercero" type="revolute">
     <parent link="cuello_link"/>
     <child link="entre_cuello_2_link"/>
     <axis xyz="0 1 0"/>
-    <origin xyz="0 0.0 0.5" rpy="0.0 0 0.0"/>
+    <origin xyz="0.03 0.0 0.18" rpy="0.0 0 0.0"/>
     <limit upper="0.785" lower="0" velocity="2" effort="1"/>
   </joint>
 
@@ -85,9 +100,19 @@
     <parent link="entre_cuello_2_link"/>
     <child link="cuello_2_link"/>
     <axis xyz="0 1 0"/>
-    <origin xyz="0 0.0 0.2" rpy="0.0 0 0.0"/>
+    <origin xyz="0.055 0.0 0.16" rpy="0.0 0 0.0"/>
+    <limit upper="0.785" lower="0" velocity="2" effort="1"/>
+    <mimic joint="tercero" multiplier="1" offset="0" />
+  </joint>
+
+  <joint name="quinto" type="revolute">
+    <parent link="cuello_2_link"/>
+    <child link="cuello_3_link"/>
+    <axis xyz="0 1 0"/>
+    <origin xyz="0.063 0.0 0.138" rpy="0.0 0 0.0"/>
     <limit upper="0.785" lower="0" velocity="2" effort="1"/>
   </joint>
+
 
 </robot>
 
