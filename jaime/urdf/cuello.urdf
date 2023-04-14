@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robot_name">
+
+<xacro:property name="ancho" value="0.2">
+
+</xacro:property>
+
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <box size="0.4 0.2 0.6"/>
+      </geometry>
+      <origin xyz="0.0 0.0 0.3" rpy="0.0 0.0 0.0"/>
+    </visual>
+  </link>
+
+  <link name="entre_cuello_link">
+  <origin xyz="-0.2 0.0 0.1" rpy="0.0 0.0 0.0"/>
+    <visual>
+      <geometry>
+        <box size="0.3 0.2 0.3"/>
+      </geometry>
+      <origin xyz="-0.15 0.0 0.15" rpy="0.0 0.0 0.0"/>
+    </visual>
+  </link>
+
+  <link name="cuello_link">
+  <origin xyz="-0.2 0.0 0.25" rpy="0.0 0.0 0.0"/>
+    <visual>
+      <geometry>
+        <box size="0.4 0.2 0.5"/>
+      </geometry>
+      <origin xyz="-0.2 0.0 0.25" rpy="0.0 0.0 0.0"/>
+    </visual>
+  </link>
+
+  <link name="entre_cuello_2_link">
+  <origin xyz="0.0 0.0 0.1" rpy="0.0 0.0 0.0"/>
+    <visual>
+      <geometry>
+        <box size="0.4 0.2 0.2"/>
+      </geometry>
+      <origin xyz="-0.2 0.0 0.1" rpy="0.0 0.0 0.0"/>
+    </visual>
+  </link>
+
+  <link name="cuello_2_link">
+  <origin xyz="0 0.0 0.25" rpy="0.0 0.0 0.0"/>
+    <visual>
+      <geometry>
+        <box size="0.4 0.2 0.5"/>
+      </geometry>
+      <origin xyz="-0.2 0.0 0.25" rpy="0.0 0.0 0.0"/>
+    </visual>
+  </link>
+
+
+
+  <joint name="primero" type="revolute">
+    <parent link="base_link"/>
+    <child link="entre_cuello_link"/>
+    <axis xyz="0 1 0"/>
+    <origin xyz="0.15 0.0 0.6" rpy="0.0 0 0.0"/>
+    <limit upper="0.785" lower="0" velocity="2" effort="1"/>
+  </joint>
+
+  <joint name="segundo" type="revolute">
+    <parent link="entre_cuello_link"/>
+    <child link="cuello_link"/>
+    <axis xyz="0 1 0"/>
+    <origin xyz="0 0.0 0.3" rpy="0.0 0 0.0"/>
+    <limit upper="0.785" lower="0" velocity="2" effort="1"/>
+  </joint>
+
+  <joint name="tercero" type="revolute">
+    <parent link="cuello_link"/>
+    <child link="entre_cuello_2_link"/>
+    <axis xyz="0 1 0"/>
+    <origin xyz="0 0.0 0.5" rpy="0.0 0 0.0"/>
+    <limit upper="0.785" lower="0" velocity="2" effort="1"/>
+  </joint>
+
+  <joint name="cuarto" type="revolute">
+    <parent link="entre_cuello_2_link"/>
+    <child link="cuello_2_link"/>
+    <axis xyz="0 1 0"/>
+    <origin xyz="0 0.0 0.2" rpy="0.0 0 0.0"/>
+    <limit upper="0.785" lower="0" velocity="2" effort="1"/>
+  </joint>
+
+</robot>
+
