@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="robot_name">
+<robot name="jaime" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
 <xacro:property name="ancho" value="0.2">
 
@@ -263,11 +263,11 @@
   <transmission name="primero_trans">
   <type>transmission_interface/SimpleTransmission</type>
   <joint name="primero">
-    <hardwareInterface>EffortJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
   </joint>
   <actuator name="primero_motor">
     <mechanicalReduction>1</mechanicalReduction>
-    <hardwareInterface>EffortJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
   </actuator>
   </transmission>
 
@@ -276,44 +276,44 @@
   <transmission name="segundo_trans">
   <type>transmission_interface/SimpleTransmission</type>
   <joint name="segundo">
-    <hardwareInterface>EffortJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
   </joint>
   <actuator name="segundo_motor">
     <mechanicalReduction>1</mechanicalReduction>
-    <hardwareInterface>EffortJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
   </actuator>
   </transmission>
   
   <transmission name="tercero_trans">
   <type>transmission_interface/SimpleTransmission</type>
   <joint name="tercero">
-    <hardwareInterface>EffortJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
   </joint>
   <actuator name="tercero_motor">
     <mechanicalReduction>1</mechanicalReduction>
-    <hardwareInterface>EffortJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
   </actuator>
   </transmission>
 
   <transmission name="cuarto_trans">
   <type>transmission_interface/SimpleTransmission</type>
   <joint name="cuarto">
-    <hardwareInterface>EffortJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
   </joint>
   <actuator name="cuarto_motor">
     <mechanicalReduction>1</mechanicalReduction>
-    <hardwareInterface>EffortJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
   </actuator>
   </transmission>
 
   <transmission name="quinto_trans">
   <type>transmission_interface/SimpleTransmission</type>
   <joint name="quinto">
-    <hardwareInterface>EffortJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
   </joint>
   <actuator name="quinto_motor">
     <mechanicalReduction>1</mechanicalReduction>
-    <hardwareInterface>EffortJointInterface</hardwareInterface>
+    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
   </actuator>
   </transmission>
 
