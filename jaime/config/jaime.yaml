@@ -1,0 +1,25 @@
+
+type: position_controllers/JointGroupPositionController
+joints:
+  - primero
+  - segundo
+  - tercero
+  - cuarto
+  - quinto
+constraints:
+  goal_time: 0.6
+  stopped_velocity_tolerance: 0.05
+  primero: {trajectory: 0.2, goal: 0.1}
+  segundo: {trajectory: 0.2, goal: 0.1}
+  tercero: {trajectory: 0.2, goal: 0.1}
+  cuarto: {trajectory: 0.2, goal: 0.1}
+  quinto: {trajectory: 0.2, goal: 0.1}
+pid_gains:
+  primero: {p: 1, i: 0, d: 0, i_clamp: 1}
+  segundo: {p: 1, i: 0, d: 0, i_clamp: 1}
+  tercero: {p: 1, i: 0, d: 0, i_clamp: 1}
+  cuarto: {p: 1, i: 0, d: 0, i_clamp: 1}
+  quinto: {p: 1, i: 0, d: 0, i_clamp: 1}
+state_publish_rate:  25            # Override default
+action_monitor_rate: 30            # Override default
+top_trajectory_duration: 0        # Override default
