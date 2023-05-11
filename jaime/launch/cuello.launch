@@ -1,6 +1,6 @@
 <launch>
 
-  <arg name="model" default="$(find jaime)/urdf/cuello.urdf"/>
+  <arg name="model" default="$(find jaime)/urdf/cuello.xacro"/>
   <arg name="gui" default="true" />
   <arg name="rvizconfig" default="$(find urdf_tutorial)/rviz/urdf.rviz" />
 
