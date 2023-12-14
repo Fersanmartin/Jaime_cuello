@@ -6,7 +6,7 @@ import numpy as np
 import pandas as pd 
 import math as m
 
-with open('matriz_IK_lista.pkl', 'rb') as archivo: 
+with open('matriz_IK.pkl', 'rb') as archivo: 
     matriz= pickle.load(archivo)
 
 mat1=[[82,0],[76,-5800],[70,-11700],[65,-16700],[60,-21400],[55,-26400],[50,-32000]]

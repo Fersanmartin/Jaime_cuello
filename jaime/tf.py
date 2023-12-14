@@ -12,7 +12,7 @@ def tf_listener():
     tf_buffer = tf2_ros.Buffer()
     tf_listener = tf2_ros.TransformListener(tf_buffer)
 
-    rate = rospy.Rate(1000)  # Escucha a una tasa de 1 Hz
+    rate = rospy.Rate(10)  # Escucha a una tasa de 1 Hz
 
     # Crea un publicador para las posiciones x y z
     position_publisher = rospy.Publisher('/position_topic', Float64MultiArray, queue_size=10)
